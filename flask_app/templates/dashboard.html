@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <title>{{user.first_name}}</title>
+</head>
+<body>
+    <div class="header">
+        <div class="famspace">
+            <h1>GroupSpace</h1>
+        </div>
+        <div class="user_options">
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'Family1')">Family One</button>
+        <button class="tablinks" onclick="openCity(event, 'Family2')">Family Two</button>
+        <button class="tablinks" onclick="openCity(event, 'Family3')">Family Three</button>
+    </div>
+    <div id="Family One" class="tabcontent">
+        <h3>London</h3>
+        <p>London is the capital city of England.</p>
+    </div>
+    <div id="Family Two" class="tabcontent">
+        <h3>Paris</h3>
+        <p>Paris is the capital of France.</p>
+    </div>
+    <div id="Family Three" class="tabcontent">
+        <h3>Tokyo</h3>
+        <p>Tokyo is the capital of Japan.</p>
+    </div>
+</body>
+</html>

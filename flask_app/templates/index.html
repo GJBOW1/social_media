@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <title>Home</title>
+</head>
+<body>
+    <div class="flash_wrapper">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <h1 class="flash">Important:</h1>
+                {% for message in messages %}
+                    <p class="flash">{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <div class="form_wrapper_b">
+        <div class="left_column">
+            <div class="left_header">
+                <h1>Register</h1>
+            </div>
+            <div class="left_form">
+                <form action="/register" method="POST">
+                    <div class="first_name">
+                        <label for="first_name">First Name:</label>
+                        <input type="text" name="first_name" required>
+                    </div>
+                    <br>
+                    <div class="last_name">
+                        <label for="last_name">Last Name:</label>
+                        <input type="text" name="last_name" required>
+                    </div>
+                    <br>
+                    <div class="email">
+                        <label for="email">Email:</label>
+                        <input type="text" name="email" required>
+                    </div>
+                    <br>
+                    <div class="birthdate">
+                        <label for="birthdate">Birthdate:</label>
+                        <input type="date" name="birthdate" required>
+                    </div>
+                    <br>
+                    <div class="password">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" required>
+                    </div>
+                    <br>
+                    <div class="confirm_password">
+                        <label for="confirm_password">Confirm Password:</label>
+                        <input type="password" name="confirm_password" required>
+                    </div>
+                    <br>
+                    <div class="submit">
+                        <input type="submit" value="Register">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="right_column">
+            <div class="right_header">
+                <h1>Log In</h1>
+            </div>
+            <div class="right_form">
+                <form action="/login" method="POST">
+                    <div class="email">
+                        <label for="email">Email:</label>
+                        <input type="text" name="email" required>
+                    </div>
+                    <div class="password">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" required>
+                    </div>
+                    <br>
+                    <div class="submit">
+                        <input type="submit" value="Login">
+                    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

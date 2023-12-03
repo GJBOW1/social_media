@@ -1,0 +1,179 @@
+* {
+    border: solid red 1px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_wrapper {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0em 0em 0em 10em;
+}
+
+.form_wrapper_b {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5em 0em 0em 0em;
+}
+
+.form_wrapper_add {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0em 0em 0em 10em;
+    width: 500px;
+}
+
+.left_column, .right_column {
+    display: flex;
+    flex-direction: column;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+form div {
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0em 7em 0em 0em;
+    height: 1.5em;
+    padding: 0em 1em 0em 1em;
+    text-decoration: none;
+    color: black;
+}
+
+.nav_a {
+    margin: 1em 2em 0em 0em;
+    box-shadow: 5px 5px black;
+    border: black solid 1px;
+    text-decoration: none;
+    color: black;
+    padding: 0em .5em 0em .5em;
+    align-items: center;
+}
+
+.nav_b {
+    margin: 0em 1em 0em 0em;
+    box-shadow: 5px 5px black;
+    border: black solid 1px;
+    text-decoration: none;
+    color: black;
+    padding: 0em .5em 0em .5em;
+    align-items: center;
+}
+
+.dashboard_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0em 9em 0em 9em;
+}
+
+.dashboard_header_add_car {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0em 9em 0em 5em;
+}
+
+.dashboard_header a {
+    height: 1.5em;
+    padding: 0em 1em 0em 1em;
+    text-decoration: none;
+    color: black;
+}
+
+.logout {
+    display: flex;
+    box-shadow: 5px 5px black;
+    border: 1px solid black;
+    align-items: center;
+    margin: 0em 1em 0em 0em;    
+}
+
+.dashboard_header_cars {
+    margin: 1em 9em 1em 4.5em;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 1em 5em 2em 5em;
+    align-items: center;
+}
+
+.famspace {
+    display: flex;
+    color: rgb(42, 60, 220)
+}
+
+.nav_div {
+    display: flex;
+    width: 300px;
+    align-items: center;
+    justify-items: center;
+}
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+  /* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+
+.tab button.active {
+    background-color: #ccc;
+}
+
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.tabcontent {
+    animation: fadeEffect 1s;
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+
+.flash {
+    display: flex;
+    justify-content: center;
+    color: red;
+    font-size: x-large;
+}
