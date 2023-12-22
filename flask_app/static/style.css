@@ -1,6 +1,6 @@
-* {
+/* * {
     border: solid red 1px;
-}
+} */
 
 body {
     display: flex;
@@ -114,10 +114,6 @@ form div {
     align-items: center;
 }
 
-.famspace {
-    display: flex;
-    color: rgb(42, 60, 220)
-}
 
 .nav_div {
     display: flex;

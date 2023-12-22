@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='dashboard_style.css')}}">
+    <title>Group Affiliation</title>
+</head>
+<body>
+    <div class="header">
+        <div class="famspace">
+            <h1>GroupSpace</h1>
+        </div>
+        <div class="user_options">
+            <a href="/dashboard">Home</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    <div class="form_wrapper_b">
+        <div class="left_column">
+            <div class="left_header">
+                <h1>Create Group</h1>
+            </div>
+            <div class="left_form">
+                    <form action="/create_group" method="POST">
+                        <label for="group_name">Group Name:</label>
+                        <input type="text" name="group_name">
+                        <label for="description">Group Description:</label>
+                        <input type="text" name="description">
+                        <input type="submit" value="Create Group">
+                    </form>
+            </div>
+        </div>
+        <div class="right_column">
+            <div class="right_header">
+                <h2>Group Options</h2>
+            </div>
+            <div class="right_form">
+                <h3>Current Group Affiliation:</h3>
+                    <h3><a href="/view/group/{{group.id}}">{{group.group_name}}</a></h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

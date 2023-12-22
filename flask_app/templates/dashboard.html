@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='dashboard_style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='calendar_style.css')}}">
     <title>{{user.first_name}}</title>
 </head>
 <body>
@@ -12,25 +13,113 @@
             <h1>GroupSpace</h1>
         </div>
         <div class="user_options">
+            <a href="/group">Group</a>
             <a href="/logout">Logout</a>
         </div>
     </div>
-    <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'Family1')">Family One</button>
-        <button class="tablinks" onclick="openCity(event, 'Family2')">Family Two</button>
-        <button class="tablinks" onclick="openCity(event, 'Family3')">Family Three</button>
-    </div>
-    <div id="Family One" class="tabcontent">
-        <h3>London</h3>
-        <p>London is the capital city of England.</p>
-    </div>
-    <div id="Family Two" class="tabcontent">
-        <h3>Paris</h3>
-        <p>Paris is the capital of France.</p>
-    </div>
-    <div id="Family Three" class="tabcontent">
-        <h3>Tokyo</h3>
-        <p>Tokyo is the capital of Japan.</p>
+    <div class="lower_wrapper">
+        <div class="left_column">
+            <div class="calendar_body_wrapper">
+                <div class="calendar">
+                    <div class="calendar-header">
+                        <span class="month-picker" id="month-picker"></span>
+                        <div class="year-picker">
+                            <span id="year">2023</span>
+                        </div>
+                    </div>
+                    <div class="calendar-body">
+                        <div class="calendar-week-day">
+                            <div>Sun</div>
+                            <div>Mon</div>
+                            <div>Tue</div>
+                            <div>Wed</div>
+                            <div>Thu</div>
+                            <div>Fri</div>
+                            <div>Sat</div>
+                        </div>
+                        <div class="calendar-days"></div>
+                    </div>
+                    <div class="month-list"></div>
+                </div>
+                <script src="{{url_for('static', filename='calendar.js')}}"></script>
+            </div>
+            <hr width="80%">
+            <div class="shared_links">
+                <h3>Shared Links</h3>
+                <a href="www.github.com">Github</a>
+            </div>
+            <hr width="80%">
+            <div class="birthday_wrapper">
+                <h3>Member Birthdates</h3>
+                <p>- {{user.first_name}} {{user.last_name}}: {{user.birthdate.strftime('%d %B %Y')}}</p>
+            </div>
+        </div>
+        <div class="middle_column">
+            <h1 class="middle_header">
+                {{user.first_name}} {{user.last_name}}
+            </h1>
+            <div class="second_row_middle">
+                <img src="{{ url_for('static', filename='avatar.jpg') }}" alt="My Photo">
+                <div class="message_board">
+                    <p>message1</p>
+                    <p>message2</p>
+                    <p>message3</p>
+                </div>
+                <div class="upcoming_events">
+                    <a href="/upcoming_events">Upcoming Events:</a>
+                </div>
+            </div>
+            <div class="middle_bottom">
+                <div class="middle_bottom_left">
+                    <div class="middle_bottom_left_location">
+                        <img src="{{ url_for('static', filename='location_marker.jpg') }}" alt="Location Marker">
+                        <a href="/weather" class="location">{{user.city}}, {{user.state}}</a>
+                    </div>
+                    <a href="/photos" class="collage">Photos:</a>
+                    <div class="middle_bottom_left_photos_row1">
+                        <a href="/photos">
+                            <img src="{{ url_for('static', filename='avatar.jpg') }}" alt="Location Marker">
+                        </a>
+                        <a href="/photos">
+                            <img src="{{ url_for('static', filename='avatar.jpg') }}" alt="Location Marker">
+                        </a>
+                    </div>
+                    <div class="middle_bottom_left_photos_row2">
+                        <a href="/photos">
+                            <img src="{{ url_for('static', filename='avatar.jpg') }}" alt="Location Marker">
+                        </a>
+                        <a href="/photos">
+                            <img src="{{ url_for('static', filename='avatar.jpg') }}" alt="Location Marker">
+                        </a>
+                    </div>
+                </div>
+                <div class="middle_bottom_right">
+                    <a href="/discussion_board">Discussion Board:</a>
+                    <p>Discussion Board 2</p>
+                    <p>Discussion Board 2</p>
+                </div>
+            </div>
+        </div>
+        <div class="right_column">
+            <div class="weather">
+                <a href="/weather">{{user.city}}, {{user.state}}</a>
+                <a href="/weather">Weather_Location1</a>
+                <a href="/weather">Weather_Location1</a>
+                <a href="/weather">Weather_Location1</a>
+            </div>
+            <hr width = 80%>
+            <div class="time_location">
+                <a href="/time">{{user.city}}, {{user.state}}</a>
+                <a href="/time">Time_Location1</a>
+                <a href="/time">Time_Location1</a>
+                <a href="/time">Time_Location1</a>
+            </div>
+        </div>
+
+
     </div>
 </body>
 </html>
+
+
+<!-- Sourcing of portions of this code related to the calendar come from: https://www.educative.io/answers/how-to-create-an-animated-calendar-with-html-and-css -->

@@ -1,7 +1,8 @@
 from flask_app import app
-from flask import render_template, session, redirect, request, flash
-from flask_app.controllers import users
+from flask import render_template, session, redirect, request, flash, url_for
+from flask_app.controllers import users, groups
 from flask_app.models.user import User
+from flask_app.models.group import Group
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
@@ -25,6 +26,87 @@ def dashboard():
 
 # add this to send to the html:  cars = cars
 
+@app.route('/group')
+def group():
+    if not session.get('user_id'):
+        return redirect('/')
+    data = {
+        'id' : session.get('user_id')
+    }
+    user = User.get_by_id(data)
+    group = Group.get_by_user_id(data)
+    return render_template('group_affiliation.html', user = user, group = group)
+
+@app.route('/weather')
+def weather():
+    if not session.get('user_id'):
+        return redirect('/')
+    data = {
+        'id' : session.get('user_id')
+    }
+    user = User.get_by_id(data)
+    return render_template('weather.html', user = user)
+
+
+@app.route('/time')
+def time():
+    if not session.get('user_id'):
+        return redirect('/')
+    data = {
+        'id' : session.get('user_id')
+    }
+    user = User.get_by_id(data)
+    return render_template('time.html', user = user)
+
+@app.route('/discussion_board')
+def discussion_board():
+    if not session.get('user_id'):
+        return redirect('/')
+    data = {
+        'id' : session.get('user_id')
+    }
+    user = User.get_by_id(data)
+    return render_template('discussion_board.html', user = user)
+
+@app.route('/upcoming_events')
+def upcoming_events():
+    if not session.get('user_id'):
+        return redirect('/')
+    data = {
+        'id' : session.get('user_id')
+    }
+    user = User.get_by_id(data)
+    return render_template('upcoming_events.html', user = user)
+
+@app.route('/add_event')
+def add_events():
+    if not session.get('user_id'):
+        return redirect('/')
+    data = {
+        'id' : session.get('user_id')
+    }
+    user = User.get_by_id(data)
+    return render_template('add_event.html', user = user)
+
+@app.route('/photos')
+def photos():
+    if not session.get('user_id'):
+        return redirect('/')
+    data = {
+        'id' : session.get('user_id')
+    }
+    user = User.get_by_id(data)
+    return render_template('photos.html', user = user)
+
+@app.route('/add_photo')
+def add_photo():
+    if not session.get('user_id'):
+        return redirect('/')
+    data = {
+        'id' : session.get('user_id')
+    }
+    user = User.get_by_id(data)
+    return render_template('add_photo.html', user = user)
 
 @app.route('/login', methods=["POST"])
 def login():

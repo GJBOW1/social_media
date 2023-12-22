@@ -1,0 +1,30 @@
+/* * {
+    border: solid red 1px;
+} */
+
+.weather_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3em 0em 0em 0em;
+}
+
+.today_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.today_weather {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    padding: 1em 3em 1em 3em;
+}
+
+.today_weather img {
+    width: 10em;
+    height: 10em;
+}

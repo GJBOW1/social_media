@@ -1,0 +1,10 @@
+.events_nav {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0em 5em 0em 0em;
+    font-size: xx-large;
+}
+
+.events_nav a {
+    margin: 0em 1em 0em 1em;
+}

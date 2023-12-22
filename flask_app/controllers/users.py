@@ -1,6 +1,6 @@
 from flask_app import app
 from flask import render_template, session, redirect, request, flash
-from flask_app.controllers import home
+from flask_app.controllers import home, groups
 from flask_app.models.user import User
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
@@ -21,6 +21,8 @@ def registration():
         "last_name" : request.form['last_name'],
         "email" : request.form['email'],
         "birthdate" : request.form['birthdate'],
+        "city" : request.form['city'],
+        "state" : request.form['state'],
         "password" : pw_hash
     }
     user_id = User.save(data)

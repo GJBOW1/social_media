@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='dashboard_style.css')}}">
+    <title>Group Affiliation</title>
+</head>
+<body>
+    <div class="header">
+        <div class="famspace">
+            <h1>GroupSpace</h1>
+        </div>
+        <div class="user_options">
+            <a href="/dashboard">Home</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    <div class="form_wrapper_b">
+        <div class="left_column">
+            <div class="left_header">
+                <h1>Create Group</h1>
+            </div>
+            <div class="left_form">
+                    <form action="/update/group/{{group.id}}" method="POST">
+                        <label for="group_name">Group Name:</label>
+                        <input type="text" name="group_name" placeholder="{{group.group_name}}" required>
+                        <label for="description">Group Description:</label>
+                        <input type="text" name="description" placeholder="{{group.description}}" required>
+                        <input type="submit" value="Update Group">
+                    </form>
+                    <a href="/delete/group/{{group.id}}">Delete Group</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

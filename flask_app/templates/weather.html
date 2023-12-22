@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='dashboard_style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='weather_style.css')}}">
+    <title>Weather</title>
+</head>
+<body>
+    <div class="header">
+        <div class="famspace">
+            <h1>GroupSpace</h1>
+        </div>
+        <div class="user_options">
+            <a href="/dashboard">Home</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    <h1>Today's Weather for {{user.city}}, {{user.state}}:</h1>
+    <div class="weather_wrapper">
+        <div class="today_wrapper">
+            <div class="today_weather">
+                <img src="{{ url_for('static', filename='thunderstorm.jpg') }}" alt="My Photo">
+                <h3>Thunderstorms</h3>
+                <h3>High: 43º</h3>
+                <h3>Low: 23º</h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
