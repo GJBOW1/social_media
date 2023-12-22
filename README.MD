@@ -6,5 +6,7 @@ In general, I didn't have any particular problems that were too challenging to o
 
 While I have a while to go to complete all of my envisioned functions within the website, I am well on my way to fleshing out the framework and look forward to finishing it.
 
+GitHub Link:  https://github.com/GJBOW1/social_media.git
+
 MYSQL username: root
 MySQL password: rootroot
