@@ -1,6 +1,7 @@
-/* * {
-    border: solid red 1px;
-} */
+* {
+    /* border: red 2px solid; */
+    background-color: antiquewhite;
+}
 
 h1 {
     font-size: 3em;

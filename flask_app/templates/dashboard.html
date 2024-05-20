@@ -61,6 +61,7 @@
             <div class="second_row_middle">
                 <img src="{{ url_for('static', filename='avatar.jpg') }}" alt="My Photo">
                 <div class="message_board">
+                    <a href="/messages">Message Board:</a>
                     <p>message1</p>
                     <p>message2</p>
                     <p>message3</p>
@@ -68,7 +69,7 @@
                 <div class="upcoming_events">
                     <a href="/upcoming_events">Upcoming Events:</a>
                     <div class="events_list">
-                        <!-- this is where you will need to create a new events model and list out the events you want to save to the self so you can recall it here using the method: {{events.desired content}}-->
+                        <!-- this is where you will need to create a new events model and list out the events you want to save to the self so you can recall it here using the method: the double {}-->
                     </div>
                 </div>
             </div>
@@ -97,7 +98,7 @@
                     </div>
                 </div>
                 <div class="middle_bottom_right">
-                    <a href="/discussion_board">Discussion Board:</a>
+                    <a href="/discussion_board">Discussion Threads:</a>
                     <p>Discussion Board 2</p>
                     <p>Discussion Board 2</p>
                 </div>

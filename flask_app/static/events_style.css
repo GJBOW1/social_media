@@ -1,5 +1,6 @@
 * {
-    border: red 2px solid;
+    /* border: red 2px solid; */
+    background-color: antiquewhite;
 }
 
 .events_nav {
@@ -11,4 +12,27 @@
 
 .events_nav a {
     margin: 0em 1em 0em 1em;
+}
+
+.event_add_form {
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+}
+
+.event_add_form form {
+    padding: 3em;
+    border: black solid 5px;
+    background-color: rgb(162, 174, 170);
+}
+
+.event_add_form label, .event_submit {
+    margin: 1em 0em 0em 0em;
+    font-size: x-large;
+    background-color: rgb(162, 174, 170);
+}
+
+.event_add_form input, textarea {
+    font-size: x-large;
+    background-color: white;
 }

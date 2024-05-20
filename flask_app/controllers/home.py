@@ -47,7 +47,6 @@ def weather():
     user = User.get_by_id(data)
     return render_template('weather.html', user = user)
 
-
 @app.route('/time')
 def time():
     if not session.get('user_id'):
@@ -57,6 +56,16 @@ def time():
     }
     user = User.get_by_id(data)
     return render_template('time.html', user = user)
+
+@app.route('/messages')
+def messages():
+    if not session.get('user_id'):
+        return redirect('/')
+    data = {
+        'id' : session.get('user_id')
+    }
+    user = User.get_by_id(data)
+    return render_template('message_board.html', user = user)
 
 @app.route('/discussion_board')
 def discussion_board():
