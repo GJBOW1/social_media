@@ -55,6 +55,11 @@ class Group:
     def delete_by_id(cls,data):
         query = "DELETE FROM teams WHERE id = %(id)s;"
         return connectToMySQL('groupspace_schema').query_db(query,data)
+    
+    @classmethod
+    def save_event(cls, data):
+        query = "INSERT INTO events (event, date_time, comment, team_id) VALUES (%(event)s, %(date_time)s, %(comment)s, %(team_id)s);"
+        return connectToMySQL('groupspace_schema').query_db(query, data)
 
     @staticmethod
     def validate_group(group):

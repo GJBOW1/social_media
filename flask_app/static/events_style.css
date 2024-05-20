@@ -1,3 +1,7 @@
+* {
+    border: red 2px solid;
+}
+
 .events_nav {
     display: flex;
     justify-content: flex-end;

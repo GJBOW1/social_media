@@ -10,3 +10,9 @@ GitHub Link:  https://github.com/GJBOW1/social_media.git
 
 MYSQL username: root
 MySQL password: rootroot
+
+To begin, type this in the command: 
+pipenv shell
+python3 server.py
+then open browswer to: http://localhost:5001
+example login: tt@gmail.com Password8*

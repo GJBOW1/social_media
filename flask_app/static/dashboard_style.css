@@ -40,29 +40,34 @@ body {
 
 .lower_wrapper {
     display: flex;
+    flex: 1;
 }
 
 /* LEFT COLUMN */
 
 .left_column {
     display: flex;
+    flex: 1;
     margin: 0em 1em 0em 1em;
     flex-direction: column;
 }
 
 .calendar {
     display: flex;
+    flex: 1;
 }
 
 .shared_links {
     display: flex;
     flex-direction: column;
     padding: 0em 0em 1em 0em; 
+    flex: 1;
 }
 
 .birthday_wrapper {
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 /* MIDDLE COLUMN */
@@ -72,15 +77,18 @@ body {
     flex-direction: column;
     width: 80em;
     border: solid black 2px;
+    flex: 1;
 }
 
 .middle_header {
     display:flex;
+    flex: 1;
 }
 
 .second_row_middle {
     display: flex;
     align-items: center;
+    flex: 1;
 }
 
 .second_row_middle img {
@@ -94,6 +102,7 @@ body {
     width: 10em;
     height: 10em;
     border: solid black 1px;
+    flex: 1;
 }
 
 .message_board  {
@@ -102,6 +111,7 @@ body {
     border: solid black 1px;
     width: 20em;
     height: 10em;
+    flex: 1;
 }
 
 .upcoming_events {
@@ -110,6 +120,7 @@ body {
     border: solid black 1px;
     width: 50em;
     height: 10em;
+    flex: 1;
 }
 
 .middle_bottom {
@@ -140,6 +151,7 @@ body {
     display: flex;
     align-items: center;
     margin: .25em 0em 0em 0em;
+    flex: 1;
 }
 
 .middle_bottom_left_location img {
@@ -149,28 +161,33 @@ body {
 
 .middle_bottom_left_photos_row1, .middle_bottom_left_photos_row2 {
     display: flex;
+    flex: 1;
 }
 
 .middle_bottom_left_photos_row1 img, .middle_bottom_left_photos_row2 img {
     width: 5em;
     height: 5em;
     margin: 1em;
+    flex: 1;
 
 }
 
 .location, .date_time, .collage {
     display: flex;
+    flex: 1;
 }
 
 .middle_bottom_right {
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 .middle_bottom_right p {
     width: 50em;
     border: solid black 1px;
     padding: 1em;   
+    flex: 1;
 }
 
 /* RIGHT COLUMN */
@@ -186,6 +203,7 @@ body {
 .weather, .time_location {
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 .weather a, .time_location a {
@@ -193,4 +211,5 @@ body {
     margin: 1em 0em 1em 0em;
     text-decoration: none;
     color: black;
+    flex: 1;
 }

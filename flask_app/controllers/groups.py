@@ -51,3 +51,15 @@ def delete_group(id):
     }
     Group.delete_by_id(data)
     return redirect('/group')
+
+@app.route('/create_event', methods=["POST"])
+def create_event():
+    print("this is the session ID: ", session.get('group_id'))
+    data = {
+        "event" : request.form['event'],
+        "date_time" : request.form['date_time'],
+        "comment" : request.form['comment'],
+        "team_id" : session.get('group_id')
+    }
+    Group.save_event(data)
+    return redirect('/add_event')
