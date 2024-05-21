@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static', filename='dashboard_style.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='calendar_style.css')}}">
-    <title>{{user.first_name}}</title>
+    <title>{{user.first_name}} {{user.last_name}}</title>
 </head>
 <body>
     <div class="header">
         <div class="famspace">
-            <h1>GroupSpace</h1>
+            <h1 onclick="return_to_dashboard()" >GroupSpace</h1>
+            
         </div>
         <div class="user_options">
             <a href="/group">Group</a>

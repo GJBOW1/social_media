@@ -1,6 +1,6 @@
 * {
     /* border: red 2px solid; */
-    background-color: antiquewhite;
+    background-color: darkgray;
 }
 
 h1 {
@@ -13,11 +13,6 @@ body {
     flex-direction: column;
 }
 
-.famspace {
-    display: flex;
-    color: rgb(42, 60, 220)
-}
-
 .header {
     display: flex;
     justify-content: space-between;
@@ -27,16 +22,20 @@ body {
 
 .user_options a {
     box-shadow: 5px 5px black;
+    background-color: rgb(170, 255, 0);
     border: 1px black solid;
     padding: .5em 1em .5em 1em;
     margin: 0em 1em 0em 1em;
     text-decoration: none;
     color: black;
+    font-weight: bolder;
 }
 
 .famspace {
-    display: flex;
-    color: rgb(42, 60, 220)
+    font-size: large;
+    -webkit-text-stroke: 1px black;
+    text-shadow: 0px 2px 4px black;
+    color: rgb(170, 255, 0)
 }
 
 .lower_wrapper {
@@ -77,13 +76,14 @@ body {
     display: flex;
     flex-direction: column;
     width: 80em;
-    border: solid black 2px;
+    border: solid rgb(170, 255, 0) 3px;
     flex: 1;
 }
 
 .middle_header {
     display:flex;
     flex: 1;
+    color: rgb(170, 255, 0);
 }
 
 .second_row_middle {
@@ -138,7 +138,7 @@ body {
 
 .collage {
     text-decoration: underline;
-    color: black;
+    color: rgb(170, 255, 0);
     margin: 1em 0em 1em 1.75em;
 }
 
