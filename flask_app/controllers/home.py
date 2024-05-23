@@ -3,6 +3,7 @@ from flask import render_template, session, redirect, request, flash, url_for
 from flask_app.controllers import users, groups
 from flask_app.models.user import User
 from flask_app.models.group import Group
+from flask_app.models.event import Event
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
@@ -17,12 +18,15 @@ def dashboard():
     if not session.get('user_id'):
         return redirect('/')
     data = {
-        'id' : session.get('user_id')
+        'id' : session.get('user_id'),
+        'team_id' : '9'
+        # To-Do: Figure out how to insert the team id number from the session without explicitly writing the number. 
     }
     user = User.get_by_id(data)
+    event = Event.get_events_by_group(data)
     print(user)
     # cars = Car.get_all_cars()
-    return render_template('dashboard.html', user = user)
+    return render_template('dashboard.html', user = user, event = event)
 
 # add this to send to the html:  cars = cars
 
@@ -82,10 +86,11 @@ def upcoming_events():
     if not session.get('user_id'):
         return redirect('/')
     data = {
-        'id' : session.get('user_id')
+        'team_id' : '9'
+        # To-Do: Figure out how to insert the team id number from the session without explicitly writing the number. 
     }
-    user = User.get_by_id(data)
-    return render_template('upcoming_events.html', user = user)
+    event = Event.get_events_by_group(data)
+    return render_template('upcoming_events.html', event = event)
 
 @app.route('/add_event')
 def add_events():

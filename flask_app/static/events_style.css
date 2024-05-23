@@ -36,3 +36,8 @@
     font-size: x-large;
     background-color: white;
 }
+
+.events_list {
+    display: flex;
+    flex-direction: column;
+}
