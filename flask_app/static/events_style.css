@@ -40,4 +40,5 @@
 .events_list {
     display: flex;
     flex-direction: column;
+    overflow: auto;
 }

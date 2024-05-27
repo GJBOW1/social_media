@@ -23,9 +23,12 @@
         <a href="/add_event">+ Add Event</a>
     </div>
     <div class="events_list">
-        <p>Event Title: {{event.event}}</p>
-        <p>Event Date: {{event.date_time}}</p>
-        <p>Event Description: {{event.comment}}</p>
+    <h2>Events for {{user.teams.group_name}}</h2>
+        {% for event in event|reverse %}
+        {% if loop.index <= 20 %}
+            <p>Event Title: {{event.event}} Event Date: {{event.date_time}} Event Description: {{event.comment}}</p>
+        {% endif %}
+    {% endfor %}
     </div>
 </body>
 </html>

@@ -18,13 +18,11 @@ class Event:
     def get_events_by_group(cls,data):
         query = "SELECT * FROM events WHERE team_id = %(team_id)s;"
         results = connectToMySQL('groupspace_schema').query_db(query,data)
-        print(results)
-        # events = []
-        # for event in results:
-        #     events.append(cls(event))
-        # print(events)
-        # return events   
-        return results[0]
+        events = []
+        for event in results:
+            events.append(cls(event))
+        return events   
+        # return results[0]
     
     @classmethod
     def save_event(cls, data):

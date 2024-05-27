@@ -1,6 +1,6 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask import flash
-from flask_app.models import group
+from flask_app.models import group, event
 import re
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
@@ -16,7 +16,8 @@ class User:
         self.password = data['password']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
-        self.groups = []
+        self.teams = []
+        self.teams_id = []
     
     @classmethod 
     def save(cls, data):
@@ -45,7 +46,28 @@ class User:
         results = connectToMySQL('groupspace_schema').query_db(query,data)
         print(results)
         user = cls(results[0])
-        return user 
+        for row in results:
+            user.teams = {
+                "id" : row["teams.id"],
+                "group_name" : row["group_name"],
+                "description" : row["description"],
+                "created_at" : row["teams.created_at"],
+                "updated_at" : row["teams.updated_at"],
+                "user_id" : row["user_id"]
+            }
+        return user
+    
+    @classmethod
+    def get_group_id_by_user_id(cls,data):
+        query = "SELECT * from users LEFT JOIN teams ON users.id = teams.user_id WHERE users.id = %(id)s;"
+        results = connectToMySQL('groupspace_schema').query_db(query,data)
+        # user = cls(results[0])
+        for row in results:
+            User.teams = {
+                "id" : row["teams.id"]
+            }
+        team_id = User.teams['id']
+        return team_id
 
     @classmethod
     def get_by_id_car_and_user(cls):

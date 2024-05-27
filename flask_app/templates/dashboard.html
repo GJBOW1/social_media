@@ -68,11 +68,13 @@
                     <p>message3</p>
                 </div>
                 <div class="upcoming_events">
-                    <a href="/upcoming_events">Upcoming Events:</a>
+                        <a href="/upcoming_events">Upcoming Events:</a>
                     <div class="events_list">
-                        <p>Event Title: {{event.event}}</p>
-                        <p>Event Date: {{event.date_time}}</p>
-                        <p>Event Description: {{event.comment}}</p>
+                        {% for event in event|reverse %}
+                            {% if loop.index <= 10 %}
+                                <p>Event Title: {{event.event}} Event Date: {{event.date_time}} Event Description: {{event.comment}}</p>
+                            {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
             </div>

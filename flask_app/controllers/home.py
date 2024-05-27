@@ -17,18 +17,23 @@ def home():
 def dashboard():
     if not session.get('user_id'):
         return redirect('/')
-    data = {
-        'id' : session.get('user_id'),
-        'team_id' : '9'
-        # To-Do: Figure out how to insert the team id number from the session without explicitly writing the number. 
+    user_data = {
+        'id' : session.get('user_id')
     }
-    user = User.get_by_id(data)
-    event = Event.get_events_by_group(data)
-    print(user)
-    # cars = Car.get_all_cars()
-    return render_template('dashboard.html', user = user, event = event)
+    team_id = User.get_group_id_by_user_id(user_data)
+    session['team_id'] = team_id
+    team_data = {
+        'team_id' : session.get('team_id')
+    }
+    session_data = []
+    for key, value in session.items():
+        session_data.append(f"{key}: {value}")
+    session_contents = "<br>".join(session_data)
+    print('session contents: ', session_contents)
+    user = User.get_by_id(user_data)
+    event = Event.get_events_by_group(team_data)
+    return render_template('dashboard.html', user = user, event = event, team_id = team_id)
 
-# add this to send to the html:  cars = cars
 
 @app.route('/group')
 def group():
@@ -85,22 +90,39 @@ def discussion_board():
 def upcoming_events():
     if not session.get('user_id'):
         return redirect('/')
-    data = {
-        'team_id' : '9'
-        # To-Do: Figure out how to insert the team id number from the session without explicitly writing the number. 
+    user_data = {
+        'id' : session.get('user_id')
     }
-    event = Event.get_events_by_group(data)
-    return render_template('upcoming_events.html', event = event)
+    team_data = {
+        'team_id' : session.get('team_id')
+    }
+    user = User.get_by_id(user_data)
+    event = Event.get_events_by_group(team_data) 
+    return render_template('upcoming_events.html', user = user, event = event)
 
 @app.route('/add_event')
 def add_events():
     if not session.get('user_id'):
         return redirect('/')
     data = {
-        'id' : session.get('user_id')
+        'id' : session.get('user_id'),
+        'team_id' : session.get('team_id')
     }
     user = User.get_by_id(data)
     return render_template('add_event.html', user = user)
+
+@app.route('/submit_event', methods=["POST"])
+def submit_event():
+    if not session.get('user_id'):
+        return redirect('/')
+    data = {
+        "event" : request.form['event'],
+        "date_time" : request.form['date_time'],
+        "comment" : request.form['comment'],
+        "team_id" : session.get('team_id')
+    }
+    Group.save_event(data)
+    return redirect('/upcoming_events')
 
 @app.route('/photos')
 def photos():

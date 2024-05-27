@@ -121,6 +121,7 @@ body {
     border: solid black 1px;
     width: 50em;
     height: 10em;
+    overflow: auto;
     flex: 1;
 }
 

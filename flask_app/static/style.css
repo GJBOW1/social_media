@@ -15,7 +15,7 @@ body {
 
 .form_wrapper_b {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin: 5em 0em 0em 0em;
 }
 
