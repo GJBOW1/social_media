@@ -18,15 +18,15 @@
             <a href="/logout">Logout</a>
         </div>
     </div>
-    <h1>Upcoming Events</h1>
+    <h1>Upcoming Events for {{teams.group_name}} </h1>
     <div class="events_nav">
         <a href="/add_event">+ Add Event</a>
     </div>
     <div class="events_list">
-    <h2>Events for {{user.teams.group_name}}</h2>
+    <h2>List of events: </h2>
         {% for event in event|reverse %}
         {% if loop.index <= 20 %}
-            <p>Event Title: {{event.event}} Event Date: {{event.date_time}} Event Description: {{event.comment}}</p>
+            <p>Event Title: {{event.event}} Event Date: {{event.date_time}} Event Description: {{event.comment}} <a href="/edit_event/{{event.id}}">Edit Event</a> <a href='/delete_event/{{event.id}}'>Delete Event</a></p>
         {% endif %}
     {% endfor %}
     </div>

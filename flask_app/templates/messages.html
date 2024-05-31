@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='dashboard_style.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='events_style.css')}}">
-    <title>Add Event</title>
+    <title>Messages</title>
 </head>
 <body>
     <div class="header">
@@ -18,20 +18,17 @@
             <a href="/logout">Logout</a>
         </div>
     </div>
-    <h1>Add Event</h1>
-    <div class="event_add_form">
-        <form action="/submit_event" method="POST">
-            <label for="event">Event Title:</label>
-            <input type="text" name="event">
-            <label for="date_time">Event Date:</label>
-            <input type="datetime-local" name="date_time">
-            <label for="comment">Event Description:</label>
-            <textarea rows="4" cols="50" name="comment"></textarea>
-            <input class = "event_submit" type="submit" value="Add Event">
-        </form>
-    </div>
+    <h1>Messages</h1>
     <div class="events_nav">
-        <a href="/upcoming_events">Return to Upcoming Events</a>
+        <a href="/add_message">+ Add Message</a>
+    </div>
+    <div class="events_list">
+    <h2>Events for {{user.teams.group_name}}</h2>
+        {% for message in messages|reverse %}
+        {% if loop.index <= 20 %}
+            <p>Event Title: {{messages.comment}} Event Date: {{messages.comment}} Event Description: {{messages.message}} <a href="/edit_event/{{event.id}}">Edit Message</a> <a href='/delete_event/{{event.id}}'>Delete Message</a></p>
+        {% endif %}
+    {% endfor %}
     </div>
 </body>
 </html>

@@ -23,7 +23,7 @@ def dashboard():
     team_id = User.get_group_id_by_user_id(user_data)
     session['team_id'] = team_id
     team_data = {
-        'team_id' : session.get('team_id')
+        'id' : session.get('team_id')
     }
     session_data = []
     for key, value in session.items():
@@ -74,7 +74,7 @@ def messages():
         'id' : session.get('user_id')
     }
     user = User.get_by_id(data)
-    return render_template('message_board.html', user = user)
+    return render_template('messages.html', user = user)
 
 @app.route('/discussion_board')
 def discussion_board():
@@ -94,11 +94,12 @@ def upcoming_events():
         'id' : session.get('user_id')
     }
     team_data = {
-        'team_id' : session.get('team_id')
+        'id' : session.get('team_id')
     }
     user = User.get_by_id(user_data)
     event = Event.get_events_by_group(team_data) 
-    return render_template('upcoming_events.html', user = user, event = event)
+    teams = Group.get_by_id(team_data)
+    return render_template('upcoming_events.html', user = user, event = event, teams = teams)
 
 @app.route('/add_event')
 def add_events():
@@ -123,6 +124,49 @@ def submit_event():
     }
     Group.save_event(data)
     return redirect('/upcoming_events')
+
+@app.route('/edit_event/<int:id>')
+def edit_event(id):
+    if not session.get('user_id'):
+        return redirect('/')
+    user_data = {
+        'id' : session.get('user_id')
+    }
+    team_data = {
+        'id' : session.get('team_id')
+    }
+    data = {
+        'id' : id
+    }
+    user = User.get_by_id(user_data)
+    event = Event.get_event_by_id(data)
+    teams = Group.get_by_id(team_data)
+    return render_template('edit_event.html', user = user, event = event, teams = teams)
+
+@app.route('/submit_edit/<int:id>', methods=['POST'])
+def submit_edit(id): 
+    if not session.get('user_id'):
+        return redirect('/')
+    data = {
+        "id" : id,
+        "event" : request.form['event'],
+        "date_time" : request.form['date_time'],
+        "comment" : request.form['comment'],
+        "team_id" : session.get('team_id')
+    }
+    Group.edit_event(data)
+    return redirect('/upcoming_events')
+
+@app.route('/delete_event/<int:id>')
+def delete_event(id):
+    if not session.get('user_id'):
+        return redirect('/')
+    data = {
+        'id' : id
+    }
+    Group.delete_event(data)
+    return redirect('/upcoming_events')
+    
 
 @app.route('/photos')
 def photos():

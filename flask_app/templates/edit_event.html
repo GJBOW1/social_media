@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='dashboard_style.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='events_style.css')}}">
-    <title>Add Event</title>
+    <title>Edit Event</title>
 </head>
 <body>
     <div class="header">
@@ -18,16 +18,17 @@
             <a href="/logout">Logout</a>
         </div>
     </div>
-    <h1>Add Event</h1>
+    <h1>Edit Event</h1>
     <div class="event_add_form">
-        <form action="/submit_event" method="POST">
-            <label for="event">Event Title:</label>
-            <input type="text" name="event">
+        <form action="/submit_edit/{{event.id}}" method="POST">
+            <input type="hidden" name="id" value="{{event.id}}">
+            <label for="event">Event Name: </label>
+            <input type="text" name="event" placeholder="{{event.event}}">
             <label for="date_time">Event Date:</label>
-            <input type="datetime-local" name="date_time">
+            <input type="datetime-local" name="date_time" placeholder="{{event.date_time}}">
             <label for="comment">Event Description:</label>
-            <textarea rows="4" cols="50" name="comment"></textarea>
-            <input class = "event_submit" type="submit" value="Add Event">
+            <textarea rows="4" cols="50" name="comment" placeholder="{{event.comment}}"></textarea>
+            <input class = "event_submit" type="submit" value="Edit Event">
         </form>
     </div>
     <div class="events_nav">
