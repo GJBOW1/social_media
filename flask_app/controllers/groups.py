@@ -1,8 +1,21 @@
 from flask_app import app
 from flask import render_template, session, redirect, request, flash
-from flask_app.controllers import home, users
+from flask_app.controllers import home, users, messages, events
 from flask_app.models.group import Group
 from flask_app.models.user import User
+from flask_app.models.message import Message
+from flask_app.models.event import Event
+
+@app.route('/group')
+def view_group():
+    if not session.get('user_id'):
+        return redirect('/')
+    data = {
+        'id' : session.get('user_id')
+    }
+    user = User.get_by_id(data)
+    group = Group.get_by_user_id(data)
+    return render_template('group_affiliation.html', user = user, group = group)
 
 @app.route('/create_group', methods=["POST"])
 def create_group():

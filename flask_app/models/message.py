@@ -17,12 +17,13 @@ class Message:
 
     @classmethod
     def get_messages_by_group(cls,data):
-        query = "SELECT * FROM messages WHERE team_id = %(team_id)s;"
+        query = "SELECT * FROM messages WHERE id = %(id)s;"
         results = connectToMySQL('groupspace_schema').query_db(query,data)
+        print(results)
         messages = []
         for message in results:
-            messages.append(cls(message))
-        return messages
+            message.append(cls(message))
+        return messages   
         
     @classmethod
     def get_messages_by_id(cls,data):

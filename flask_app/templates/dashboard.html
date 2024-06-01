@@ -18,13 +18,15 @@
             <a href="/logout">Logout</a>
         </div>
     </div>
-    <div class="flash_wrapper">
+    <div>
         {% with messages = get_flashed_messages() %}
             {% if messages %}
-                <h1 class="flash">Important:</h1>
-                {% for message in messages %}
-                    <p class="flash">{{message}}</p>
-                {% endfor %}
+                <div class="flash_wrapper">
+                    <h1 class="flash_header">Whoops...</h1>
+                    {% for message in messages %}
+                        <p class="flash">{{message}}</p>
+                    {% endfor %}
+                </div>
             {% endif %}
         {% endwith %}
     </div>
@@ -73,9 +75,13 @@
                 <img src="{{ url_for('static', filename='avatar.jpg') }}" alt="My Photo">
                 <div class="message_board">
                     <a href="/messages">Message Board:</a>
-                    <p>message1</p>
-                    <p>message2</p>
-                    <p>message3</p>
+                    <div class="events_list">
+                        {% for event in event|reverse %}
+                            {% if loop.index <= 10 %}
+                                <p>Event Title: {{event.event}} Event Date: {{event.date_time}} Event Description: {{event.comment}}</p>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
                 </div>
                 <div class="upcoming_events">
                         <a href="/upcoming_events">Upcoming Events:</a>
