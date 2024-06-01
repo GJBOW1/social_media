@@ -18,6 +18,16 @@
             <a href="/logout">Logout</a>
         </div>
     </div>
+    <div class="flash_wrapper">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <h1 class="flash">Important:</h1>
+                {% for message in messages %}
+                    <p class="flash">{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
     <div class="lower_wrapper">
         <div class="left_column">
             <div class="calendar_body_wrapper">
