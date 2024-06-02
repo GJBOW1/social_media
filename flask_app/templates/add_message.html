@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='dashboard_style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='events_style.css')}}">
+    <title>Add Message</title>
+</head>
+<body>
+    <div class="header">
+        <div class="famspace">
+            <h1>GroupSpace</h1>
+        </div>
+        <div class="user_options">
+            <a href="/dashboard">Home</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    <h1>Add Event</h1>
+    <div class="event_add_form">
+        <form action="/submit_message" method="POST">
+            <label for="message">Message:</label>
+            <textarea rows="4" cols="50" name="message"></textarea>
+            <input class = "event_submit" type="submit" value="Add Message">
+        </form>
+    </div>
+    <div class="events_nav">
+        <a href="/messages">Return to Messages</a>
+    </div>
+</body>
+</html>

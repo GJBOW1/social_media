@@ -142,7 +142,7 @@ body {
     flex: 1;
 }
 
-.upcoming_events {
+.upcoming_events, .message_board {
     display: flex;
     flex-direction: column;
     border: solid black 1px;

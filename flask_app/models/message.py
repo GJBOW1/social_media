@@ -28,22 +28,16 @@ class Message:
     def get_messages_by_id(cls,data):
         query = "SELECT * FROM messages WHERE id = %(id)s;"
         results = connectToMySQL('groupspace_schema').query_db(query,data)
-        return results
+        return results[0]
     
     @classmethod
     def save_messages(cls, data):
-        query = "INSERT INTO messages (comment, date_time, team_id, user_id) VALUES (%(comment)s, %(date_time)s, %(team_id)s, %(user_id)s);"
-        return connectToMySQL('groupspace_schema').query_db(query, data)
-    
-    
-    @classmethod
-    def save_message(cls, data):
-        query = "INSERT INTO messages (comment, date_time, comment, team_id) VALUES (%(event)s, %(date_time)s, %(comment)s, %(team_id)s);"
+        query = "INSERT INTO messages (message, date_time, team_id, user_id) VALUES (%(message)s, %(date_time)s, %(team_id)s, %(user_id)s);"
         return connectToMySQL('groupspace_schema').query_db(query, data)
     
     @classmethod
     def edit_message(cls, data):
-        query = "UPDATE messages SET comment = %(comment)s, date_time = %(date_time)s, team_id = %(team_id)s, user_id = %(user_id)s WHERE id = %(id)s;"
+        query = "UPDATE messages SET message = %(message)s, team_id = %(team_id)s, date_time = %(date_time)s, user_id = %(user_id)s WHERE id = %(id)s;"
         return connectToMySQL('groupspace_schema').query_db(query,data)
     
     @classmethod
