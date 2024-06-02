@@ -152,6 +152,28 @@ body {
     flex: 1;
 }
 
+.event_box, .message_box {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px dotted black;
+    padding: 0em 0em 1em 0em;
+    margin: 1em 0em 0em 0em;
+}
+
+.message_box_headers, .event_box_headers {
+    display: flex;
+    flex-direction: row;
+    color: rgb(170, 255, 0);
+    font-weight: bold;
+}
+
+.message_box_content, .event_box_content {
+    display: flex;
+    color: black;
+    font-weight: 100;
+    margin: 0em 0em 0em .5em;
+}
+
 .middle_bottom {
     display: flex;
 }

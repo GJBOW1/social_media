@@ -23,10 +23,17 @@
         <a href="/add_event">+ Add Event</a>
     </div>
     <div class="events_list">
-    <h2>List of events: </h2>
         {% for event in event|reverse %}
         {% if loop.index <= 20 %}
-            <p>Event Title: {{event.event}} Event Date: {{event.date_time}} Event Description: {{event.comment}} <a href="/edit_event/{{event.id}}">Edit Event</a> <a href='/delete_event/{{event.id}}'>Delete Event</a></p>
+        <div class="event_box">
+            <div class="event_box_headers">Event Title:
+            <div class="event_box_content">{{event.event}}</div></div> 
+            <div class="event_box_headers">Date and Time:
+            <div class="event_box_content">{{event.date_time}}</div></div> 
+            <div class="event_box_headers"> Description: 
+            <div class="event_box_content">{{event.comment}}</div></div>
+            <div><a href="/edit_event/{{event.id}}">Edit Message</a> <a href='/delete_event/{{event.id}}'>Delete Message</a></div>
+        </div>
         {% endif %}
     {% endfor %}
     </div>

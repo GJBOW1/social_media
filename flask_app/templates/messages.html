@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='dashboard_style.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='events_style.css')}}">
-    <title>Messages</title>
+    <title>Group Message Board</title>
 </head>
 <body>
     <div class="header">
@@ -18,17 +18,22 @@
             <a href="/logout">Logout</a>
         </div>
     </div>
-    <h1>Messages</h1>
+    <h1>Message Board for {{user.teams.group_name}}</h1>
     <div class="events_nav">
         <a href="/add_message">+ Add Message</a>
     </div>
     <div class="events_list">
-    <h2>Events for {{user.teams.group_name}}</h2>
-        {% for message in messages|reverse %}
-        {% if loop.index <= 20 %}
-            <p>Event Title: {{messages.comment}} Event Date: {{messages.comment}} Event Description: {{messages.message}} <a href="/edit_event/{{event.id}}">Edit Message</a> <a href='/delete_event/{{event.id}}'>Delete Message</a></p>
-        {% endif %}
-    {% endfor %}
+        {% for message in message|reverse %}
+            {% if loop.index <= 20 %}
+                <div class="message_box">
+                    <div class="message_box_headers">Message:
+                    <div class="message_box_content">{{message.message}}</div></div>
+                    <div class="message_box_headers">Posted:
+                    <div class="message_box_content">{{message.date_time}}</div></div>
+                    <div><a href="/edit_message/{{message.id}}">Edit Message</a> <a href='/delete_message/{{message.id}}'>Delete Message</a></div>
+                </div>
+            {% endif %}
+        {% endfor %}
     </div>
 </body>
 </html>

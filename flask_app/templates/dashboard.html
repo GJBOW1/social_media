@@ -76,9 +76,14 @@
                 <div class="message_board">
                     <a href="/messages">Message Board:</a>
                     <div class="events_list">
-                        {% for event in event|reverse %}
-                            {% if loop.index <= 10 %}
-                                <p>Event Title: {{event.event}} Event Date: {{event.date_time}} Event Description: {{event.comment}}</p>
+                        {% for message in message|reverse %}
+                            {% if loop.index <= 20 %}
+                                <div class="message_box">
+                                    <div class="message_box_headers">Message:
+                                    <div class="message_box_content">{{message.message}}</div></div>
+                                    <div class="message_box_headers">Posted:
+                                    <div class="message_box_content">{{message.date_time}}</div></div>
+                                </div>
                             {% endif %}
                         {% endfor %}
                     </div>
@@ -88,7 +93,14 @@
                     <div class="events_list">
                         {% for event in event|reverse %}
                             {% if loop.index <= 10 %}
-                                <p>Event Title: {{event.event}} Event Date: {{event.date_time}} Event Description: {{event.comment}}</p>
+                                <div class="event_box">
+                                    <div class="event_box_headers">Event Title:
+                                    <div class="event_box_content">{{event.event}}</div></div> 
+                                    <div class="event_box_headers">Date and Time:
+                                    <div class="event_box_content">{{event.date_time}}</div></div> 
+                                    <div class="event_box_headers"> Description: 
+                                    <div class="event_box_content">{{event.comment}}</div></div>
+                                </div>
                             {% endif %}
                         {% endfor %}
                     </div>

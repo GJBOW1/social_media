@@ -1,6 +1,6 @@
 from flask_app import app
 from flask import render_template, session, redirect, request, flash, url_for
-from flask_app.controllers import users, groups, events, messages
+from flask_app.controllers import users, groups, events, messages, home
 from flask_app.models.user import User
 from flask_app.models.group import Group
 from flask_app.models.event import Event
@@ -15,9 +15,13 @@ def messages():
     data = {
         'id' : session.get('user_id')
     }
+    team_data = {
+        'id' : session.get('team_id')
+    }
     user_affiliated = Group.get_by_user_id(data)
     if not user_affiliated:
         flash('You must first affiliate yourself using the "group" button on the top right of the dashboard before you can see messages.')
         return redirect('/')
     user = User.get_by_id(data)
-    return render_template('messages.html', user = user)
+    message = Message.get_messages_by_group(team_data)
+    return render_template('messages.html', user = user, message = message)

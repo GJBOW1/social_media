@@ -42,3 +42,24 @@
     flex-direction: column;
     overflow: auto;
 }
+.event_box {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px dotted black;
+    padding: 0em 0em 1em 0em;
+    margin: 1em 0em 0em 0em;
+}
+
+.event_box_headers {
+    display: flex;
+    flex-direction: row;
+    color: rgb(170, 255, 0);
+    font-weight: bold;
+}
+
+.event_box_content {
+    display: flex;
+    color: black;
+    font-weight: 100;
+    margin: 0em 0em 0em .5em;
+}

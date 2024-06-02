@@ -34,8 +34,8 @@ def dashboard():
     # print('session contents: ', session_contents)
     user = User.get_by_id(user_data)
     event = Event.get_events_by_group(team_data)
-    # message = Message.get_messages_by_group(team_data)
-    return render_template('dashboard.html', user = user, event = event, team_id = team_id)
+    message = Message.get_messages_by_group(team_data)
+    return render_template('dashboard.html', user = user, event = event, message = message, team_id = team_id)
 
 @app.route('/weather')
 def weather():

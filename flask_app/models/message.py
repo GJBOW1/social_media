@@ -6,24 +6,23 @@ from flask_app.models import user, group, event
 class Message:
     def __init__(self, data):
         self.id = data['id']
-        self.group_name = data['message']
-        self.description= data['date_time']
+        self.message = data['message']
+        self.date_time = data['date_time']
+        self.user_id = data['user_id']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
         self.team_id = data['team_id']
-        self.user_id = data['user_id']
-        self.messages = []
+        messages = []
 
 
     @classmethod
     def get_messages_by_group(cls,data):
-        query = "SELECT * FROM messages WHERE id = %(id)s;"
+        query = "SELECT * FROM messages WHERE team_id = %(id)s;"
         results = connectToMySQL('groupspace_schema').query_db(query,data)
-        print(results)
         messages = []
-        for message in results:
-            message.append(cls(message))
-        return messages   
+        for row in results:
+            messages.append(cls(row))
+        return messages 
         
     @classmethod
     def get_messages_by_id(cls,data):
@@ -32,27 +31,10 @@ class Message:
         return results
     
     @classmethod
-    def get_messages_by_group(cls,data):
-        query = "SELECT * FROM messages WHERE team_id = %(team_id)s;"
-        results = connectToMySQL('groupspace_schema').query_db(query,data)
-        messages = []
-        for message in results:
-            messages.append(cls(message))
-        return messages   
-    
-    @classmethod
     def save_messages(cls, data):
         query = "INSERT INTO messages (comment, date_time, team_id, user_id) VALUES (%(comment)s, %(date_time)s, %(team_id)s, %(user_id)s);"
         return connectToMySQL('groupspace_schema').query_db(query, data)
     
-    @classmethod
-    def get_messages_by_group(cls,data):
-        query = "SELECT * FROM messages WHERE team_id = %(team_id)s;"
-        results = connectToMySQL('groupspace_schema').query_db(query,data)
-        messages = []
-        for message in results:
-            message.append(cls(message))
-        return messages  
     
     @classmethod
     def save_message(cls, data):
