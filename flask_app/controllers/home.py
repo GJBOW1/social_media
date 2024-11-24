@@ -1,9 +1,10 @@
 from flask_app import app
 from flask import render_template, session, redirect, request, flash, url_for
-from flask_app.controllers import users, groups, events, messages
+from flask_app.controllers import users, groups, events, messages, discussions
 from flask_app.models.user import User
 from flask_app.models.group import Group
 from flask_app.models.event import Event
+from flask_app.models.discussion import Discussion
 from flask_app.models.message import Message
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)

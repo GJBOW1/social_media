@@ -16,3 +16,4 @@ pipenv shell
 python3 server.py
 then open browswer to: http://localhost:5001
 example login: tt@gmail.com Password8*
+To exit the pipenv shell, just type 'exit'

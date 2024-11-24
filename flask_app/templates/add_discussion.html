@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='dashboard_style.css')}}">
-    <link rel="stylesheet" href="{{url_for('static', filename='discussion_style.css')}}">
-    <title>Discussion Board</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='events_style.css')}}">
+    <title>Add Discussion</title>
 </head>
 <body>
     <div class="header">
@@ -18,22 +18,17 @@
             <a href="/logout">Logout</a>
         </div>
     </div>
-    <h1>Discussion Board</h1>
+    <h1>Add Discussion Thread</h1>
+    <div class="event_add_form">
+        <form action="/submit_discussion" method="POST">
+            <label for="message">Message:</label>
+            <textarea rows="4" cols="50" name="message"></textarea>
+            <input class = "event_submit" type="submit" value="Add Discussion">
+        </form>
+    </div>
     <div class="events_nav">
-        <a href="/add_discussion">+ Add Disucssion Thread</a>
-    <div class="discussion_list">
-        <div class="discussion_date">
-            <h1>Date:</h1>
-        </div>
-        <div class="discussion_subject">
-            <h1>Subject:</h1>
-        </div>
-        <div class="discussion_text">
-            <h1>Content:</h1>
-        </div>
-        <div class="discussion_user">
-            <h1>Submitted by:</h1>
-        </div>
+        <a href="/messages">Return to Discussion Board</a>
+        <!-- Update href path  to /discussions once complete CRUD for discussion board. -->
     </div>
 </body>
 </html>
