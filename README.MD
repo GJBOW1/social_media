@@ -17,3 +17,9 @@ python3 server.py
 then open browswer to: http://localhost:5001
 example login: tt@gmail.com Password8*
 To exit the pipenv shell, just type 'exit'
+
+Git:
+To check status of what files have been changed: git status
+To add files, select everything changed by typing: git add *
+To commit the changes: git commit -m "add your message here"
+To push changes to github: git push origin main
