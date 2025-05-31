@@ -1,6 +1,6 @@
 * {
     /* border: red 2px solid; */
-    background-color: darkgray;
+    background-color: rgba(141, 170, 232, 0.913);
 }
 
 h1 {
@@ -35,7 +35,7 @@ body {
     font-size: large;
     -webkit-text-stroke: 1px black;
     text-shadow: 0px 2px 4px black;
-    color: rgb(170, 255, 0)
+    color: rgb(9, 28, 199)
 }
 
 .lower_wrapper {
@@ -103,14 +103,14 @@ body {
     display: flex;
     flex-direction: column;
     width: 80em;
-    border: solid rgb(170, 255, 0) 3px;
+    border: solid rgb(255, 0, 8) 3px;
     flex: 1;
 }
 
 .middle_header {
     display:flex;
     flex: 1;
-    color: rgb(170, 255, 0);
+    color: rgb(238, 67, 15);
 }
 
 .second_row_middle {
@@ -163,7 +163,7 @@ body {
 .message_box_headers, .event_box_headers {
     display: flex;
     flex-direction: row;
-    color: rgb(170, 255, 0);
+    color: rgb(0, 42, 255);
     font-weight: bold;
 }
 

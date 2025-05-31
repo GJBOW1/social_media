@@ -140,10 +140,14 @@
         <div class="right_column">
             <div class="weather">
                 <a href="/weather">{{user.city}}, {{user.state}}</a>
+                <code><a href="/weather_forecast?lat=40.7128&lon=-74.0060/" target="_blank">New York</a></code> (New York City example)
+                <!-- Remember to replace <code>myemail@example.com</code> in <code>config.py</code> with your actual email for the User-Agent. -->
                 <a href="/weather">Weather_Location1</a>
                 <a href="/weather">Weather_Location1</a>
                 <a href="/weather">Weather_Location1</a>
             </div>
+            <!-- https://api.weather.gov/points/40.7128,-74.0060 -->
+            <!-- /api/weather?lat=40.7128&lon=-74.0060/ -->
             <hr width = 80%>
             <div class="time_location">
                 <a href="/time">{{user.city}}, {{user.state}}</a>
